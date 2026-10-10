@@ -6,7 +6,7 @@ mlbisect:
   variables:
     MLBISECT_MANIFEST: mlbisect.yaml
     MLBISECT_MAX_RUNS: ""
-    MLBISECT_PACKAGE: mlbisect==0.0.1
+    MLBISECT_PACKAGE: mlbisect==0.1.0
   script:
     - python -m pip install "$MLBISECT_PACKAGE"
     - >-

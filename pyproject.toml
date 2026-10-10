@@ -4,11 +4,12 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mlbisect"
-version = "0.0.1"
+version = "0.1.0"
 description = "Find the changes that caused a noisy ML regression."
 readme = "README.md"
 requires-python = ">=3.10"
-license = { file = "LICENSE" }
+license = "Apache-2.0"
+license-files = ["LICENSE"]
 authors = [{ name = "Wissem Fouda" }]
 dependencies = [
     "pydantic>=2.7,<3",

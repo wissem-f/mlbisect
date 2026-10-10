@@ -1,7 +1,7 @@
 # Release Checklist
 
-The repository is currently kept at development version `0.0.1` by agreement.
-This checklist records the remaining owner action for the v0.1 release:
+The package is prepared as version `0.1.0`. This checklist records the
+remaining owner actions for the v0.1 release:
 
 - Confirm the final `mlbisect` PyPI name and metadata.
 - Decide the release version and update `pyproject.toml` and `CHANGELOG.md`.

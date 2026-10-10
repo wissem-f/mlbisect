@@ -1,16 +1,12 @@
 # Changelog
 
-## [0.0.1] - 2026-10-10
+## [0.1.0] - 2026-10-10
 
 ### Added
 
 - Initial Python package scaffold.
 - `mlbisect --version` command.
 - Ruff, mypy, pytest, and GitHub Actions configuration.
-
-## Unreleased
-
-### Added
 
 - YAML manifest models and validation.
 - Configuration identifiers, local and fake executors, and a JSONL run store.
