@@ -1,0 +1,25 @@
+# Include this file from a GitLab project and set MLBISECT_MANIFEST if needed.
+
+mlbisect:
+  image: python:3.12-slim
+  stage: test
+  variables:
+    MLBISECT_MANIFEST: mlbisect.yaml
+    MLBISECT_MAX_RUNS: ""
+    MLBISECT_PACKAGE: mlbisect==0.0.1
+  script:
+    - python -m pip install "$MLBISECT_PACKAGE"
+    - >-
+      if [ -n "$MLBISECT_MAX_RUNS" ]; then
+        mlbisect run "$MLBISECT_MANIFEST" --max-runs "$MLBISECT_MAX_RUNS"
+        --out mlbisect-report.md --json mlbisect-report.json;
+      else
+        mlbisect run "$MLBISECT_MANIFEST"
+        --out mlbisect-report.md --json mlbisect-report.json;
+      fi
+  artifacts:
+    when: always
+    paths:
+      - mlbisect-report.md
+      - mlbisect-report.json
+      - '**/.mlbisect/runs.jsonl'

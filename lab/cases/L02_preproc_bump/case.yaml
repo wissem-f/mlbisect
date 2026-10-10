@@ -1,0 +1,7 @@
+id: L02_preproc_bump
+description: Dependency v2 drops the feature scaling used by the evaluator.
+axes: [data, deps]
+truth:
+  culprit_sets: [[deps]]
+  expected_verdict: culprit_found
+  kind: single_cause

@@ -1,0 +1,44 @@
+name: Bug report
+description: Report incorrect behavior or an unexpected result.
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please include a small reproducible example when possible. Do not include
+        secrets, proprietary data, or credentials.
+  - type: input
+    id: version
+    attributes:
+      label: mlbisect version
+      placeholder: 0.0.1
+    validations:
+      required: true
+  - type: textarea
+    id: manifest
+    attributes:
+      label: Manifest or minimal reproduction
+      description: Paste a redacted manifest and evaluator description.
+      render: yaml
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs and reports
+      description: Include relevant errors or report excerpts.
+      render: text

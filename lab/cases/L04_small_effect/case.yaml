@@ -1,0 +1,7 @@
+id: L04_small_effect
+description: Data v2 causes a small drop hidden by evaluation noise.
+axes: [data, deps]
+truth:
+  culprit_sets: []
+  expected_verdict: inconclusive
+  kind: noisy_small_effect

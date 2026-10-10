@@ -1,0 +1,36 @@
+version: 1
+name: L05_decoy_axes
+metric:
+  name: accuracy
+  direction: higher_is_better
+  min_effect: 0.08
+run:
+  command: python eval.py
+  timeout_s: 30
+  workdir: .
+axes:
+  - name: axis_1
+    old: v1
+    new: v2
+  - name: axis_2
+    old: v1
+    new: v2
+  - name: axis_3
+    old: v1
+    new: v2
+  - name: axis_4
+    old: v1
+    new: v2
+  - name: axis_5
+    old: v1
+    new: v2
+  - name: axis_6
+    old: v1
+    new: v2
+budget:
+  max_runs: 1000
+  baseline_runs: 5
+  min_runs_per_config: 3
+  max_runs_per_config: 10
+  batch_size: 2
+  confidence: 0.95

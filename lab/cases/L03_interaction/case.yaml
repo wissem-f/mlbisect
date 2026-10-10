@@ -1,0 +1,7 @@
+id: L03_interaction
+description: Data v2 adds a noisy feature at a new scale and deps v2 drops scaling.
+axes: [data, deps]
+truth:
+  culprit_sets: [[data, deps]]
+  expected_verdict: culprit_found
+  kind: interaction

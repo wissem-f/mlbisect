@@ -1,0 +1,7 @@
+id: L05_decoy_axes
+description: Six axes are declared but only axis_3 adds harmful noise.
+axes: [axis_1, axis_2, axis_3, axis_4, axis_5, axis_6]
+truth:
+  culprit_sets: [[axis_3]]
+  expected_verdict: culprit_found
+  kind: single_cause

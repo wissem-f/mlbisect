@@ -1,0 +1,39 @@
+name: Bring a regression case
+description: Submit a real or synthetic case for Regression Lab.
+title: "[Case] "
+labels:
+  - regression-case
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We welcome small, offline, reproducible cases. Remove proprietary data
+        and secrets before submitting.
+  - type: input
+    id: case_id
+    attributes:
+      label: Proposed case ID
+      placeholder: L07_multi_culprit
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What changed and what regressed?
+    validations:
+      required: true
+  - type: textarea
+    id: truth
+    attributes:
+      label: Ground truth
+      description: List culprit sets and whether the expected result is inconclusive or no regression.
+      render: yaml
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction files
+      description: Attach or link case.yaml, mlbisect.yaml, eval.py, and any small generated-data code.
+    validations:
+      required: true

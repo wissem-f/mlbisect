@@ -1,0 +1,7 @@
+id: L06_no_regression
+description: All declared changes are harmless controls.
+axes: [data, deps]
+truth:
+  culprit_sets: []
+  expected_verdict: no_regression
+  kind: none

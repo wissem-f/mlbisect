@@ -1,0 +1,7 @@
+id: L01_data_skew
+description: Data v2 weakens the signal and adds noise in one segment.
+axes: [data, deps]
+truth:
+  culprit_sets: [[data]]
+  expected_verdict: culprit_found
+  kind: single_cause

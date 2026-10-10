@@ -1,0 +1,53 @@
+name: mlbisect regression search
+description: Run mlbisect and upload its reports and run log.
+
+inputs:
+  manifest:
+    description: Path to the mlbisect manifest.
+    required: false
+    default: mlbisect.yaml
+  max-runs:
+    description: Optional global run-budget override.
+    required: false
+    default: ""
+  python-version:
+    description: Python version used to install mlbisect.
+    required: false
+    default: "3.12"
+
+runs:
+  using: composite
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+    - name: Install mlbisect
+      shell: bash
+      run: python -m pip install "${{ github.action_path }}/../.."
+    - name: Run mlbisect
+      if: inputs.max-runs == ''
+      shell: bash
+      run: >-
+        mlbisect run "${{ inputs.manifest }}"
+        --out mlbisect-report.md
+        --json mlbisect-report.json
+    - name: Run mlbisect with budget override
+      if: inputs.max-runs != ''
+      shell: bash
+      run: >-
+        mlbisect run "${{ inputs.manifest }}"
+        --max-runs "${{ inputs.max-runs }}"
+        --out mlbisect-report.md
+        --json mlbisect-report.json
+    - name: Upload mlbisect report
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: mlbisect-report
+        path: |
+          mlbisect-report.md
+          mlbisect-report.json
+          **/.mlbisect/runs.jsonl
+        if-no-files-found: warn
+        include-hidden-files: true
